@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="130dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile" />
+
+    <TextView
+        android:id="@+id/textFirstName"
+        android:layout_width="172dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:text="First Name"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textLastName"
+        android:layout_width="172dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:text="Last Name"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/textFirstName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textUserName"
+        android:layout_width="324dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="232dp"
+        android:text="Username"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textAge"
+        android:layout_width="143dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="292dp"
+        android:text="Age"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textGender"
+        android:layout_width="151dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="292dp"
+        android:text="Gender"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textHeight"
+        android:layout_width="143dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="352dp"
+        android:text="Height"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textWeight"
+        android:layout_width="151dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="356dp"
+        android:text="Weight"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
