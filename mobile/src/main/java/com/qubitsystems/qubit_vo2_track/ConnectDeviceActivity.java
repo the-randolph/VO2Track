@@ -22,12 +22,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.os.Handler;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class ConnectDeviceActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.qubitsystems.qubit_vo2_track.MESSAGE";
@@ -40,10 +44,14 @@ public class ConnectDeviceActivity extends AppCompatActivity {
     private List<ScanFilter> filters;
     private BluetoothGatt mGatt;
 
+    private ListView lv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect_device);
+
+        lv = (ListView) findViewById(R.id.listDevice);
 
         mHandler = new Handler();
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
@@ -56,6 +64,20 @@ public class ConnectDeviceActivity extends AppCompatActivity {
                 (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
 
         mBluetoothAdapter = bluetoothManager.getAdapter();
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+
+        List<String> devices = new ArrayList<String>();
+        for(BluetoothDevice bt: pairedDevices)
+            devices.add(bt.getName());
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                devices
+        );
+
+        lv.setAdapter(arrayAdapter);
+
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
