@@ -30,7 +30,7 @@ public class ActiveSessionActivity extends AppCompatActivity {
     }
 
     public void updateHeartBPM(View view) {
-        heartBPM = 153;
+        heartBPM = heartBPM + 30;
         System.out.println("UPDATED VAL " + heartBPM);
         updateHeartView();
     }
@@ -51,8 +51,12 @@ public class ActiveSessionActivity extends AppCompatActivity {
             heart.setColorFilter(getResources().getColor(R.color.heartMaximum));
         }
 
-        TextView sampleText = findViewById(R.id.textView7);
-        sampleText.setText(Integer.toString(heartBPM));
+        TextView sampleText = findViewById(R.id.textBPM);
+        sampleText.setText(Integer.toString(heartBPM) + " BPM");
         System.out.println("TESTING VAL " + heartBPM);
+
+        if (heartBPM > 180) {
+            heartBPM = 100;
+        }
     }
 }
