@@ -10,6 +10,8 @@
 
     <color name="colorBluePrimary">#5377D3</color>
     <color name="colorBlueSecondary">#AFC0EC</color>
+    <color name="colorBlueTertiary">#4C629B</color>
     <color name="colorPurplePrimary">#AF53D3</color>
     <color name="colorPurpleSecondary">#DBAFEC</color>
+    <color name="colorPurpleTertiary">#8D42AA</color>
 </resources>

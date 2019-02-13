@@ -34,7 +34,7 @@
         <activity
                 android:label="Connect Device"
                 android:name=".ConnectDeviceActivity"
-                android:parentActivityName=".MainActivity"/>
+                android:parentActivityName=".ActiveSessionActivity"/>
         <activity
                 android:label="Active Session"
                 android:name=".ActiveSessionActivity"
