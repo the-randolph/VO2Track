@@ -30,7 +30,7 @@ public class ActiveSessionActivity extends AppCompatActivity {
     }
 
     public void updateHeartBPM(View view) {
-        heartBPM = heartBPM + 30;
+        heartBPM = heartBPM + 20;
         System.out.println("UPDATED VAL " + heartBPM);
         updateHeartView();
     }

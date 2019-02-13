@@ -32,7 +32,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 
 public class ConnectDeviceActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.qubitsystems.qubit_vo2_track.MESSAGE";
