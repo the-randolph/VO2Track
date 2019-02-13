@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 public class ConnectDeviceActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.qubitsystems.qubit_vo2_track.MESSAGE";
@@ -60,24 +61,25 @@ public class ConnectDeviceActivity extends AppCompatActivity {
             finish();
         }
 
-        final BluetoothManager bluetoothManager =
-                (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+        else {
+            final BluetoothManager bluetoothManager =
+                    (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
 
-        mBluetoothAdapter = bluetoothManager.getAdapter();
-        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+            mBluetoothAdapter = bluetoothManager.getAdapter();
+            Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 
-        List<String> devices = new ArrayList<String>();
-        for(BluetoothDevice bt: pairedDevices)
-            devices.add(bt.getName());
+            List<String> devices = new ArrayList<String>();
+            for (BluetoothDevice bt : pairedDevices)
+                devices.add(bt.getName());
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                devices
-        );
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                    this,
+                    android.R.layout.simple_list_item_1,
+                    devices
+            );
 
-        lv.setAdapter(arrayAdapter);
-
+            lv.setAdapter(arrayAdapter);
+        }
 
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
