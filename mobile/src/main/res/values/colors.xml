@@ -7,4 +7,9 @@
     <color name="heartHard">#f7c512</color>
     <color name="heartMaximum">#ec0101</color>
     <color name="White">#FFFFFF</color>
+
+    <color name="colorBluePrimary">#5377D3</color>
+    <color name="colorBlueSecondary">#AFC0EC</color>
+    <color name="colorPurplePrimary">#AF53D3</color>
+    <color name="colorPurpleSecondary">#DBAFEC</color>
 </resources>

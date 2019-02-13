@@ -67,6 +67,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void viewSession(View view) {
+        TextView tv = (TextView) findViewById(R.id.textView);
+        tv.setText("Session");
+        Intent intent = new Intent(this, HistoricalSessionActivity.class);
+        String message = "SETTINGS";
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
+
     public Profile getProfile() {
         return base;
     }
