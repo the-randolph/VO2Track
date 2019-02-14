@@ -22,6 +22,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -43,7 +44,7 @@ public class ConnectDeviceActivity extends AppCompatActivity {
     private ScanSettings settings;
     private List<ScanFilter> filters;
     private BluetoothGatt mGatt;
-
+    List<String> devices = new ArrayList<String>();
     private ListView lv;
 
     @Override
@@ -67,9 +68,10 @@ public class ConnectDeviceActivity extends AppCompatActivity {
             mBluetoothAdapter = bluetoothManager.getAdapter();
             Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
 
-            List<String> devices = new ArrayList<String>();
-            for (BluetoothDevice bt : pairedDevices)
-                devices.add(bt.getName());
+            // List<String> devices = new ArrayList<String>();
+            for (BluetoothDevice bt : pairedDevices) {
+                devices.add(bt.getName() + "\n" + bt.getAddress());
+            }
 
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                     this,
@@ -78,6 +80,12 @@ public class ConnectDeviceActivity extends AppCompatActivity {
             );
 
             lv.setAdapter(arrayAdapter);
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    viewActiveSession(view, devices.get(i));
+                }
+            });
         }
 
         Intent intent = getIntent();
@@ -242,11 +250,18 @@ public class ConnectDeviceActivity extends AppCompatActivity {
         }
     };
 
-
     public void viewActiveSession(View view) {
         Intent intent = new Intent(this, ActiveSessionActivity.class);
         String message = "ACTIVE SESSION STARTED";
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+
+    public void viewActiveSession(View view, String device) {
+        Intent intent = new Intent(this, ActiveSessionActivity.class);
+        String message = device;
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
+
 }
